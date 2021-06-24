@@ -1,13 +1,15 @@
 <?php
 namespace Deployer;
+use DevCoder\DotEnv;
+(new DotEnv(__DIR__ . '/.env'))->load();
 
 require 'recipe/laravel.php';
 
 // Project name
-set('application', 'rainier');
+set('application', getenv('APP_NAME'));
 
 // Project repository
-set('repository', 'git@github.com:ckovey/rainier.git');
+set('repository', getenv('DEPLOYER_REPO'));
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
@@ -22,7 +24,7 @@ set('allow_anonymous_stats', false);
 
 // Hosts
 
-host('project.com')
+host(getenv('DEPLOYER_HOST'))
     ->set('deploy_path', '~/{{application}}');
 
 // Tasks
