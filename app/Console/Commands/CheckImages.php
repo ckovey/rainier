@@ -39,8 +39,8 @@ class CheckImages extends Command {
    */
   public function handle() {
 
-    $this->fetchImage('muir_east');
-    $this->fetchImage('mountain');
+    $this->fetchImage(Image::CAMP_MUIR);
+    $this->fetchImage(Image::MOUNTAIN);
 
     return 0;
   }

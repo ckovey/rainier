@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ImageController::class, 'index']);
+Route::get('/cam/{cam}', [ImageController::class, 'cam'])->name('cam');
+Route::get('/list/{cam}', [ImageController::class, 'list']);

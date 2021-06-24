@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-  <title>Time Lapse</title>
+  <title>{{ $title }}</title>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script type='text/javascript' src='mTimeLapse.js'></script>
+  <script type='text/javascript' src='{{ asset('mTimeLapse.js') }}'></script>
   <style>
-    * {
-      margin:0px;
-      padding:0px;
-      font-family:sans-serif;
-    }
+
 
     body {
       text-align: center;
@@ -36,7 +32,7 @@
     #frame_front,
     #frame_back {
       position: absolute;
-      top:10px;
+      top:80px;
       left:10px;
       width:98%;
     }
@@ -52,6 +48,10 @@
 
     #data_stamp {
       font-family: monospace;
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      right: 50%;
     }
 
     #mTimeLapse {
@@ -60,6 +60,7 @@
   </style>
 </head>
 <body>
+<h2>{{ $title }}</h2>
 <div id="mTimeLapse">
   @foreach($images as $image)
     <img src="{{ asset("storage/{$image->image}") }}"

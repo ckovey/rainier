@@ -28,6 +28,10 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  */
 class Image extends Model {
+
+  const CAMP_MUIR = 'muir_east';
+  const MOUNTAIN = 'mountain';
+
   use HasFactory;
   protected $guarded = [];
   protected $casts = [
