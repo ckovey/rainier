@@ -8,6 +8,7 @@
 
 
     body {
+      font-family: Verdana, Arial, Helvetica, sans-serif;
       text-align: center;
     }
 
@@ -17,7 +18,7 @@
       margin:4px;
       width:100px;
       color: rgb(250,252,255);
-      border:0px;
+      border:0;
     }
 
     input:hover {
@@ -49,9 +50,13 @@
     #data_stamp {
       font-family: monospace;
       position: fixed;
-      top: 50px;
-      left: 50%;
-      right: 50%;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 5% auto;
+      text-align: center;
+      display: block;
+      color: #1a202c;
     }
 
     #mTimeLapse {
@@ -64,7 +69,7 @@
 <div id="mTimeLapse">
   @foreach($images as $image)
     <img src="{{ asset("storage/{$image->image}") }}"
-         data-stamp="{{ $image->last_modified->setTimezone('America/Los_Angeles')->format('H:i') }}" alt="img"/>
+         data-stamp="{{ $image->last_modified->setTimezone('America/Los_Angeles')->format('m/d h:i A') }}" alt="img"/>
   @endforeach
 </div>
 </body>
